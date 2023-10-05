@@ -5,7 +5,7 @@
 $error = 'Error de Connexión número (' . $bbdd->connect_errno . ') ' . $bbdd->connect_error;
 
 //Declarar variables
-$registros = 0;
+$registro= 4;
 $pagina = 0;
 
 function numberpages($bbdd, $pagina, $buskr, $registro, $error){
@@ -19,7 +19,7 @@ function numberpages($bbdd, $pagina, $buskr, $registro, $error){
 
     $paginas = $totalRegistros/$registro;
 
-    echo $paginas;
+    //echo $paginas;
     ?>
     <tr>
     <td colspan="2" align="center">
@@ -84,7 +84,7 @@ function pages($bbdd, $pagina, $buskr, $registro, $error){
 
             ?>
             <tr>
-                <td><img title='<?php echo $row["movie_name"]?>' alt='<?php echo $row["movie_name"]?>' src='fotos/<?php echo $row["movie_id"]?>' width=70 height=70></td>
+                <td><img title='<?php echo $row["movie_name"]?>' alt='<?php echo $row["movie_name"]?>' src='fotos/<?php echo $row["movie_id"]?>.jpg' width=70 height=70></td>
                 <td><?php echo $row["movie_name"]?></td>
                 <td><?php echo $row["movie_year"]?></td>
             </tr>
@@ -106,21 +106,21 @@ function searchs(){
     if(isset($_GET['searchs'])):
         $buskr=$_GET['searchs'];
     else:
-        $buskr=' ';
+        $buskr='';
     endif;
 
     return $buskr;
 }
 
 if(isset($_GET['pagina'])):
-$registro= 2;
+
 $pagina = $_GET['pagina'];
   $buskr = searchs();
 
     pages($bbdd, $pagina, $buskr, $registro, $error);
 
 else:
-$registro= 4;
+
 $pagina = 1;
   $buskr = searchs();
   //var_dump($buskr);
