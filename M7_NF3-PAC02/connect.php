@@ -12,7 +12,7 @@ $bbdd = @new mysqli(SITE_DDBB, ADMIN_USER, ADMIN_PASSWORD, DATABASE_NAME);
     if($bbdd->connect_errno){
         die('Error de Connexión número ' . $bbdd->connect_errno . ', ' . $bbdd->connect_error);
     } else {
-       echo 'Connexión establecida...';
+       //echo 'Connexión establecida...';
     }
 
 
